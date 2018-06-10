@@ -1,0 +1,130 @@
+<include file="public@header"/>
+<style type="text/css">
+    .pic-list li {
+        margin-bottom: 5px;
+    }
+</style>
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li><a href="{:url('AdminJudicialAuxiliaryRating/index')}">司辅评级管理</a></li>
+        <li class="active"><a href="{:url('AdminJudicialAuxiliaryRating/add')}">添加司辅评级</a></li>
+    </ul>
+    <form action="{:url('AdminJudicialAuxiliaryRating/addPost')}" method="post" class="form-horizontal js-ajax-form margin-top-20">
+        <div class="row">
+            <div class="col-md-9">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>司辅名称<span class="form-required">*</span></th>
+                        <td>
+                            <input class="form-control" type="text" name="post[name]"
+                                   id="title" required value="" placeholder="请输入司辅名称"/>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <th>评级等级</th>
+                        
+                        <td>
+                        	<select name="post[star_level]" id="star_level" style="width: 80px">
+							    <option value="5">5</option>
+							    <option value="4">4</option>
+							    <option value="3">3</option>
+							    <option value="2">2</option>
+							    <option value="1">1</option>
+						 	</select>
+						 </td>
+                </table>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary js-ajax-submit">{:lang('ADD')}</button>
+                        <a class="btn btn-default" href="{:url('AdminJudicialAuxiliaryRating/index')}">{:lang('BACK')}</a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </form>
+</div>
+<script type="text/javascript" src="__STATIC__/js/admin.js"></script>
+<script type="text/javascript">
+    //编辑器路径定义
+    var editorURL = GV.WEB_ROOT;
+</script>
+<script type="text/javascript" src="__STATIC__/js/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="__STATIC__/js/ueditor/ueditor.all.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+
+    	$("#province").change(function() {
+			getCity();
+		});
+    	
+    	$("#city").change(function(){
+    		getDistrict();
+    	});
+
+		function getCity() {
+			$("#city").empty();
+			$.getJSON("__URL__/GetCity", {
+				province : $("#province").val()
+			}, function(data) {
+				$.each(data, function(i, item) {
+					$("<option></option>").val(item['city']).text(
+							item['city']).appendTo($("#city"));
+				});
+				getDistrict();
+			});
+		}
+		
+		function getDistrict() {
+			$("#district").empty();
+			$.getJSON("__URL__/getDistrict", {
+				city : $("#city").val()
+			}, function(data) {
+				$.each(data, function(i, item) {
+					$("<option></option>").val(item['district']).text(
+							item['district']).appendTo($("#district"));
+				});
+			});
+		}
+		
+        editorcontent = new baidu.editor.ui.Editor();
+        editorcontent.render('content');
+        try {
+            editorcontent.sync();
+        } catch (err) {
+        }
+
+        $('.btn-cancel-thumbnail').click(function () {
+            $('#thumbnail-preview').attr('src', '__TMPL__/public/assets/images/default-thumbnail.png');
+            $('#thumbnail').val('');
+        });
+
+    });
+
+    function doSelectCategory() {
+        var selectedCategoriesId = $('#js-categories-id-input').val();
+        openIframeLayer("{:url('AdminCategory/select')}?ids=" + selectedCategoriesId, '请选择分类', {
+            area: ['700px', '400px'],
+            btn: ['确定', '取消'],
+            yes: function (index, layero) {
+                //do something
+
+                var iframeWin          = window[layero.find('iframe')[0]['name']];
+                var selectedCategories = iframeWin.confirm();
+                if (selectedCategories.selectedCategoriesId.length == 0) {
+                    layer.msg('请选择分类');
+                    return;
+                }
+                $('#js-categories-id-input').val(selectedCategories.selectedCategoriesId.join(','));
+                $('#js-categories-name-input').val(selectedCategories.selectedCategoriesName.join(' '));
+                //console.log(layer.getFrameIndex(index));
+                layer.close(index); //如果设定了yes回调，需进行手工关闭
+            }
+        });
+    }
+</script>
+</body>
+</html>

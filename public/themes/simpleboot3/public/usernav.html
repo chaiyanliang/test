@@ -1,0 +1,19 @@
+<div  style="background-color: transparent; margin-top:120px;">
+	<div class="col-md-4">	
+	</div>
+	<div sytle="position:absolute; padding:20px 20px 20px 20px;">
+        <php>$user=cmf_get_current_user();</php>
+        <if condition="empty($user['avatar'])">
+            <img src="__TMPL__/public/assets/images/headicon.png" class="headicon">
+        <else/>
+            <img src="{:cmf_get_user_avatar_url($user['avatar'])}" class="headicon" width="80"/>
+        </if>
+         <span class="user-nickname"></span>
+    </div>
+    <div class="list-group" style="margin-top: 40px">
+	    <a class="list-group-item" style="font-size:22px;font-weight:400; padding-left: 66px; border: 0px; background-color: transparent;" href="{:cmf_url('user/project/index')}"> 我的拍品</a>
+	    <a class="list-group-item" style="font-size:22px;font-weight:400; padding-left: 66px; border: 0px; background-color: transparent;" href="{:cmf_url('user/record/index')}"> 浏览记录</a>
+	    <a class="list-group-item" style="font-size:22px;font-weight:400; padding-left: 66px; border: 0px; background-color: transparent;" href="{:cmf_url('user/concern/index')}"> 我的关注</a>
+	    <a class="list-group-item" style="font-size:22px;font-weight:400; padding-left: 66px; border: 0px; background-color: transparent;" href="{:cmf_url('user/Profile/password')}"> 修改密码</a>
+    </div>
+</div>

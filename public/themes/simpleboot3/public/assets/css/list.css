@@ -1,0 +1,386 @@
+input{
+  background: none;
+  border:none;
+  margin: 0;
+}
+.clear{
+  clear: both;
+}
+.container{
+  margin: 0 auto;
+  width: 1200px;
+}
+.find{
+  background: white;
+  box-shadow: 0 0 25px rgba(0,0,0,0.1);
+}
+.choose{
+  padding-top: 20px;
+  padding-right: 24px;
+  padding-left: 22px;
+}
+.search{
+  float: right;
+}
+.search .sear{
+  width: 352px;
+  height: 36px;
+  padding: 0 10px;
+  border: 1px solid #ddd;
+  font-family: "微软雅黑";
+  font-size: 12px;
+  border-radius: 5px;
+}
+.choose .search .btn{
+  width: 105px;
+  line-height: 36px;
+  font-size: 18px;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  background: #a87715;
+  border: none;
+}
+.type{
+  border-top: 1px solid #f0f0f0;
+  margin-top: 50px;
+}
+.choose dl{
+  display: inline-block;
+  width: 1154px;
+  padding: 11px 10px 11px 0;
+  line-height: 21px;
+  border-bottom: 1px dashed #d4d4d4;
+}
+.choose div dl span{
+  font-size: 15px;
+  color: #333;
+  font-weight: bold;
+}
+.choose div dl dd{
+  margin-right: 20px;
+  padding: 0 5px;
+}
+.choose div dl dd:last-child{
+  margin-right: 0;
+}
+.choose div .active{
+  background: #a87715;
+  border-radius: 5px;
+  line-height: 21px;
+  padding: 0 5px;
+  margin-right: 13px;
+}
+.choose div dl dd a{
+  color: #444;
+  font-size: 14px;
+  padding: 2px 5px;
+}
+.choose div dl .active a{
+  color: #fff;
+  font-size: 15px;
+  vertical-align: middle;
+  padding-right: 3px;
+}
+.choose div dl dd a:hover{
+  background: #a87715;
+  border-radius: 5px;
+  color: #fff;
+}
+
+dd input{
+  list-style: none;
+  width: 57px;
+  height: 21px;
+  border: 1px solid #c0c0c0;
+  padding-left: 10px;
+}
+.btnSear{
+  width: 50px;
+  height: 25px;
+  font-size: 14px;
+  font-weight: bolder;
+  background: #15955d;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  color: #fff;
+  text-align: center;
+  padding-left: 0;
+}
+.model{
+  margin-top: 30px;
+}
+.model .layout li{
+  cursor: pointer;
+}
+.model .layout{
+  float: right;
+  margin-top: 20px;
+}
+.model .layout li{
+  float: left;
+}
+.list{
+  border-bottom: 1px solid #a87715;
+}
+.list ul li{
+  list-style: none;
+  display: inline-block;
+  padding: 0 29px;
+  font-size: 18px;
+  height: 47px;
+  line-height: 47px;
+  margin-right: -4px;
+}
+.list ul .release{
+  background: #a87715;
+}
+.list ul li:hover{
+  background: #a87715;
+}
+.tabBox{
+  padding-top: 30px
+}
+.tabBox ul li{
+  float: left;
+  margin-right: 15px;
+  margin-bottom: 30px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+ul li>a{
+  display: block;
+  width: 100%;
+  overflow: hidden;
+}
+ul li>a img:hover{
+  transform: scale(1.3);
+}
+ul li>a img{
+  border: 0;
+  width: 285px;
+  height: 150px;
+  transition: all 1.5s;
+}
+/*.over{
+	position: absolute;
+	width: 120px;
+	height: 73px;
+	z-index: 2;
+	top: 62px;
+	right: 12px;
+}*/
+/*.tabBox ul li>a em{
+	position: absolute;
+	width: 66px;
+	height: 32px;
+}*/
+.info{
+  margin-top: -3px;
+  background: #fff;
+  width: 251px;
+  padding: 16px 17px 20px 17px;
+}
+.info h5{
+  line-height: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.info p{
+  line-height: 28px;
+}
+.info p label{
+  font-size: 14px;
+  color: #444;
+}
+.info p span{
+  color: #777;
+  font-size: 14px;
+}
+.info p b{
+  font-weight: bolder;
+  font-size: 15px;
+  color: #000;
+}
+.info p a{
+  font-size: 24px;
+}
+.info p i{
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  color: #333;
+}
+.listBox{
+  padding-top: 30px;
+}
+.listBox ul li{
+  background: #fff;
+  padding: 10px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.1);
+  height: 180px;
+  margin-bottom: 21px;
+}
+.listBox li>a{
+  float: left;
+}
+.listBox li>a img{
+  width: 285px;
+  height: 180px;
+  transition: all 1.5s;
+}
+.listBox .marPrice{
+  float: left;
+  padding-left: 40px;
+  width: 360px;
+}
+.listBox .marPrice h5{
+  padding-top: 30px;
+  padding-bottom: 10px;
+  height: 12px;
+  line-height: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 600px !important;
+  font-size: 20px;
+  color: #333;
+  font-weight: bold;
+}
+.listBox .marPrice p{
+  line-height: 32px;
+}
+.listBox .marPrice p span{
+  font-size: 14px;
+  color: #666;
+}
+.listBox .marPrice p b{
+  color: #000;
+  font-size: 15px;
+  font-weight: bolder;
+}
+.listBox .marPrice p i{
+  font-style: normal;
+  font-size: 14px;
+  color: #333;
+  font-weight: bold;
+}
+.listBox .firPrice{
+  float: left;
+  width: 240px;
+  text-align: center;
+  padding-top: 56px;
+}
+.listBox .firPrice b{
+  font-weight: bold;
+  font-size: 17px;
+  color: #333;
+}
+.listBox .attention{
+  float: left;
+  width: 220px;
+  padding-top: 90px;
+  text-align: center;
+  color: #666;
+  font-size: 15px;
+}
+.listBox .attention b{
+  font-weight: normal;
+  font-size: 16px;
+  margin-right: 5px;
+}
+.listBox .firPrice p{
+  padding-top: 8px;
+}
+.listBox .firPrice p i{
+  font-style: normal;
+  font-size: 20px;
+  color: #a1a1b5;
+}
+.listBox .firPrice p span{
+  display: block;
+  font-size: 14px;
+  color: #666;
+}
+.page{
+  text-align: center;
+  padding: 34px 0;
+  background: #fff;
+  margin-top: 14px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.1);
+}
+.page span a{
+  font-size: 12px;
+}
+.page span .firstPage, .page span .nextPage{
+  background: #f6f6f6;
+  border: 1px solid #e6e6e6;
+  padding: 6px 12px;
+  color: #414446;
+  margin: 0 2px;
+}
+.page .prev, .page .next{
+  padding: 6px 9px;
+  border: 1px solid #e6e6e6;
+  background: #f6f6f6;
+}
+.page em{
+  font-style: normal;
+}
+.page em a{
+  color: #fff;
+  border: 1px solid #15955d;
+  background: #15955d;
+  padding: 6px 9px;
+  margin: 0 5px;
+}
+.page b{
+  font-size: 12px;
+}
+.page .f1{
+  font-size: 12px;
+  margin-left: 5px;
+}
+.page input{
+  width: 32px;
+  height: 28px;
+  font-size: 12px;
+  border: 1px solid #e6e6e6;
+  margin: 0 3px;
+  text-align: center;
+}
+.page .button{
+  width: 50px;
+  height: 30px;
+  border: none;
+  background: #15955d;
+  color: #fff;
+  margin-left: 6px;
+  border-radius: 5px;
+}
+.relative{
+  margin-top: 60px;
+}
+.relative .h5{
+  font-size: 20px;
+  line-height: 20px;
+  color: #454545;
+  border-left: 4px solid #ddc066;
+  padding-left: 12px;
+  font-weight: bolder;
+  margin-bottom: 26px;
+}
+.relative ul li{
+  float: left;
+  margin-right: 15px;
+  margin-bottom: 30px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.1);
+}
+.relative .info a{
+  display: block;
+  width: 100%;
+  color: #15955d;
+}
+

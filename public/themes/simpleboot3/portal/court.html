@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<include file="public@head" />
+<style type="text/css">
+#MenuList * {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+#MenuList a, #MenuList img {
+	border: 0;
+	text-decoration: none;
+}
+
+#MenuList .ddhide {
+	display: none;
+}
+
+/* submenu */
+#MenuList .submenu {
+	width: 250px;
+	margin: 40px auto;
+}
+
+#MenuList .submenu h2 {
+	height: 30px;
+	line-height: 30px;
+	overflow: hidden;
+	font-size: 16px;
+}
+
+#MenuList .submenulist li {
+	position: relative;
+	height: 36px;
+	line-height: 34px;
+	vertical-align: middle;
+}
+
+#MenuList .submenulist li h3 a {
+	position: relative;
+	display: block;
+	line-height: 34px;
+	height: 34px;
+	color: #333;
+	font-size: 14px;
+	font-weight: 400;
+	z-index: 1;
+	overflow: hidden;
+}
+
+#MenuList .submenulist li h3 a.on {
+	background: #FAE9E9;
+	width: 220px;
+	height: 32px;
+	color: #f60;
+	font-weight: 700;
+	border-right: 0 none;
+	overflow: hidden;
+}
+
+#MenuList .submenu .listbox {
+	position: absolute;
+	top: 0;
+	left: 220px;
+	background: #FAE9E9;
+	font-size: 12px;
+}
+
+#MenuList .submenu .listbox .procate, .submenu .listbox .hotbrand {
+	float: left;
+	padding: 10px 18px;
+	width: 260px;
+	overflow: hidden;
+	line-height: 14px;
+	text-indent: 0;
+}
+
+#MenuList .submenu .listbox dt {
+	font-weight: 700;
+	margin-bottom: 5px;
+}
+
+#MenuList .submenu .listbox dd {
+	float: left;
+	width: 250px;
+	height: 32px;
+	line-height: 32px;
+}
+
+#MenuList .submenu .listbox dd a {
+	display: inline;
+	background: none;
+	border: 0 none;
+	color: #000;
+}
+
+#MenuList .submenu .listbox dd a:hover {
+	color: #f60;
+	text-decoration: underline;
+}
+
+.submenu .listbox .hotbrand {
+	width: 107px;
+	border: 0 none;
+	background: #FFFDF3;
+}
+</style>
+<hook name="before_head_end" />
+</head>
+
+<body class="body-white"
+	style="background-image: url(__TMPL__/public/assets/images/bg.png); background-repeat: repeat;">
+	<include file="public@nav" />
+	<div class="container">
+		<div class="aui-screen-box">
+			<div>
+				<img src="__TMPL__/public/assets/images/index/title_arrow.png"
+					style="padding: 30px 0px;"> <span
+					style="font-size: 36px; margin: 20px;">委托法院</span> <span
+					style="color: #EE3800;">点击地图地图可选择区域法院</span>
+			</div>
+		</div>
+		<div style="width: 100%">
+			<div class="clo-md-6" style="float: left;">
+				<div id="main" style="height: 550px; width: 700px;"></div>
+			</div>
+
+
+			<div id="MenuList" class="clo-md-6"
+				style="float: left; padding-left: 60px;">
+				<span id="wrong-message" style="font-size: 28px; color: #ec4d07;">河南
+				</span>
+				<div class="submenu">
+					<h2>
+						最高人民法院<span style="color: #ec4d07;">(70)</span>
+					</h2>
+					<div id="js-menu" class="submenulist">
+						<ul>
+							<li>
+								<h3>
+									<a href="#">郑州市最高人民法院<span style="color: #ec4d07;">(70)</span></a>
+								</h3>
+								<div class="listbox ddhide">
+									<dl class="procate">
+										<dd>
+											<a href="#">郑州市第一中级人民法院<span style="color: #ec4d07;">(70)</span></a>
+										</dd>
+										<dd>
+											<a href="#">郑州市第二中级人民法院<span style="color: #ec4d07;">(70)</span></a>
+										</dd>
+										<dd>
+											<a href="#">郑州市第三中级人民法院<span style="color: #ec4d07;">(70)</span></a>
+										</dd>
+										<dd>
+											<a href="#">郑州市金水区人民法院<span style="color: #ec4d07;">(70)</span></a>
+										</dd>
+										<dd>
+											<a href="#">郑州市二七区人民法院<span style="color: #ec4d07;">(70)</span></a>
+										</dd>
+										<dd>
+											<a href="#">郑州市中原区人民法院<span style="color: #ec4d07;">(70)</span></a>
+										</dd>
+									</dl>
+								</div>
+							</li>
+							<li>
+								<h3>
+									<a href="#">洛阳市最高人民法院<span style="color: #ec4d07;">(70)</span></a>
+								</h3>
+								<div class="listbox ddhide">
+									<dl class="procate">
+										<dd>
+											<a href="#">洛阳市第一中级人民法院<span style="color: #ec4d07;">(70)</span></a>
+										</dd>
+										<dd>
+											<a href="#">洛阳市第二中级人民法院<span style="color: #ec4d07;">(70)</span></a>
+										</dd>
+										<dd>
+											<a href="#">洛阳市第三中级人民法院<span style="color: #ec4d07;">(70)</span></a>
+										</dd>
+										<dd>
+											<a href="#">洛阳市龙亭区人民法院<span style="color: #ec4d07;">(70)</span></a>
+										</dd>
+										<dd>
+											<a href="#">洛阳市开封新区人民法院<span style="color: #ec4d07;">(70)</span></a>
+										</dd>
+										<dd>
+											<a href="#">洛阳市顺河回族区人民法院<span style="color: #ec4d07;">(70)</span></a>
+										</dd>
+									</dl>
+								</div>
+							</li>
+							<li>
+								<h3>
+									<a href="#">郑州市最高人民法院<span style="color: #ec4d07;">(70)</span></a>
+								</h3>
+								<div class="listbox ddhide">
+									<dl class="procate">
+										<dd>
+											<a href="#">郑州市第一中级人民法院<span style="color: #ec4d07;">(70)</span></a>
+										</dd>
+										<dd>
+											<a href="#">郑州市第二中级人民法院<span style="color: #ec4d07;">(70)</span></a>
+										</dd>
+										<dd>
+											<a href="#">郑州市第三中级人民法院<span style="color: #ec4d07;">(70)</span></a>
+										</dd>
+										<dd>
+											<a href="#">郑州市金水区人民法院<span style="color: #ec4d07;">(70)</span></a>
+										</dd>
+										<dd>
+											<a href="#">郑州市二七区人民法院<span style="color: #ec4d07;">(70)</span></a>
+										</dd>
+										<dd>
+											<a href="#">郑州市中原区人民法院<span style="color: #ec4d07;">(70)</span></a>
+										</dd>
+									</dl>
+								</div>
+							</li>
+							<li>
+								<h3>
+									<a href="#">洛阳市最高人民法院<span style="color: #ec4d07;">(70)</span></a>
+								</h3>
+								<div class="listbox ddhide">
+									<dl class="procate">
+										<dd>
+											<a href="#">洛阳市第一中级人民法院<span style="color: #ec4d07;">(70)</span></a>
+										</dd>
+										<dd>
+											<a href="#">洛阳市第二中级人民法院<span style="color: #ec4d07;">(70)</span></a>
+										</dd>
+										<dd>
+											<a href="#">洛阳市第三中级人民法院<span style="color: #ec4d07;">(70)</span></a>
+										</dd>
+										<dd>
+											<a href="#">洛阳市龙亭区人民法院<span style="color: #ec4d07;">(70)</span></a>
+										</dd>
+										<dd>
+											<a href="#">洛阳市开封新区人民法院<span style="color: #ec4d07;">(70)</span></a>
+										</dd>
+										<dd>
+											<a href="#">洛阳市顺河回族区人民法院<span style="color: #ec4d07;">(70)</span></a>
+										</dd>
+									</dl>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div style="margin-top: 30px;">
+						<h2>
+							房产<span style="color: #ec4d07;">(20)</span><a href="#"
+								style="margin-left: 30px; color: #ec4d07;">点击更多></a>
+						</h2>
+						<h2>
+							汽车<span style="color: #ec4d07;">(30)</span><a href="#"
+								style="margin-left: 30px; color: #ec4d07;">点击更多></a>
+						</h2>
+					</div>
+				</div>
+
+
+			</div>
+
+
+
+
+		</div>
+	</div>
+	<include file="public@footer" />
+	<include file="public@scripts" />
+	<hook name="before_body_end" />
+	<script src="__TMPL__/public/assets/js/echarts.js"></script>
+	<script src="__TMPL__/public/assets/js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript">
+		//左侧导航
+		function subindexMenu() {
+			$("#js-menu").find("li").hover(function() {
+				$(this).css("z-index", "9999");
+				$(this).find("h3 a").addClass("on");
+				$(this).find(".listbox").show();
+			}, function() {
+				$(this).removeAttr("style");
+				$(this).find("h3 a").removeClass("on");
+				$(this).find(".listbox").hide();
+			});
+		}
+		$(function() {
+			subindexMenu();
+		});
+	</script>
+
+
+
+<script type="text/javascript">
+		// 路径配置
+		require.config({
+			paths : {
+				echarts : 'http://echarts.baidu.com/build/dist'
+			}
+		});
+
+		// 使用
+		require([ 'echarts', 'echarts/chart/map' // 使用柱状图就加载bar模块，按需加载
+		], function(ec) {
+			// 基于准备好的dom，初始化echarts图表
+			var myChart = ec.init(document.getElementById('main'));
+
+			option = {
+				tooltip : {
+					trigger : 'item',
+					formatter : '{b}'
+				},
+				legend: {
+            		orient: 'vertical',
+            		x:'center',
+            		data:['中国']
+        			},
+        	dataRange: {
+            x: 'left',
+            y: 'bottom',
+            show : false,
+            splitList: [
+                {start: 1500},
+                {start: 900, end: 1500},
+                {start: 200, end: 900},
+                {end: 200}
+            ],
+            color: ['#9C7B5E', '#BEA995', '#D8CABC', '#D8CABC','#E4DCD1']
+        },
+				series : [ {
+					name : '中国',
+					type : 'map',
+					mapType : 'china',
+					selectedMode : 'single',
+					roam: true,
+					itemStyle : {
+						normal : {
+							label : {
+								show : true,
+								textStyle: {
+                               	color: "#000"
+                            	}
+							}
+						},
+						emphasis : {
+							label : {
+								show : true
+							}
+						}
+					},
+					data : [ {name: '北京',value: Math.round(Math.random()*2000)},
+                {name: '天津',value: Math.round(Math.random()*2000)},
+                {name: '上海',value: Math.round(Math.random()*2000)},
+                {name: '重庆',value: Math.round(Math.random()*2000)},
+                {name: '河北',value: Math.round(Math.random()*2000)},
+                {name: '河南',value: Math.round(Math.random()*2000),selected : true},
+                {name: '云南',value: 255},
+                {name: '辽宁',value: 385},
+                {name: '黑龙江',value: Math.round(Math.random()*2000)},
+                {name: '湖南',value: 200},
+                {name: '安徽',value: Math.round(Math.random()*2000)},
+                {name: '山东',value: Math.round(Math.random()*2000)},
+                {name: '新疆',value: Math.round(Math.random()*2000)},
+                {name: '江苏',value: Math.round(Math.random()*2000)},
+                {name: '浙江',value: Math.round(Math.random()*2000)},
+                {name: '江西',value: Math.round(Math.random()*2000)},
+                {name: '湖北',value: Math.round(Math.random()*2000)},
+                {name: '广西',value: Math.round(Math.random()*2000)},
+                {name: '甘肃',value: Math.round(Math.random()*2000)},
+                {name: '山西',value: Math.round(Math.random()*2000)},
+                {name: '内蒙古',value: Math.round(Math.random()*2000)},
+                {name: '陕西',value: Math.round(Math.random()*2000)},
+                {name: '吉林',value: Math.round(Math.random()*2000)},
+                {name: '福建',value: Math.round(Math.random()*2000)},
+                {name: '贵州',value: Math.round(Math.random()*2000)},
+                {name: '广东',value: Math.round(Math.random()*2000)},
+                {name: '青海',value: Math.round(Math.random()*2000)},
+                {name: '西藏',value: Math.round(Math.random()*2000)},
+                {name: '四川',value: Math.round(Math.random()*2000)},
+                {name: '宁夏',value: Math.round(Math.random()*2000)},
+                {name: '海南',value: Math.round(Math.random()*2000)},
+                {name: '台湾',value: Math.round(Math.random()*2000)},
+                {name: '香港',value: Math.round(Math.random()*2000)},
+                {name: '澳门',value: Math.round(Math.random()*2000)}]
+				} ]
+			};
+			var ecConfig = require('echarts/config');
+			myChart.on(ecConfig.EVENT.MAP_SELECTED, function(param) {
+				var selected = param.selected;
+				var str = ' ';
+				for ( var p in selected) {
+					if (selected[p]) {
+						str += p + ' ';
+					}
+				}
+				document.getElementById('wrong-message').innerHTML = str;
+			})
+			// 为echarts对象加载数据 
+			myChart.setOption(option);
+		});
+	</script>
+
+
+</body>
+</html>

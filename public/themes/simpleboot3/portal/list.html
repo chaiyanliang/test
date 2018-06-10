@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{$category.name} {$category.seo_title}
+	{$site_info.site_name|default=''}</title>
+<meta name="keywords"
+	content="{$category.seo_keywords},{$site_info.site_seo_keywords|default=''}" />
+<meta name="description"
+	content="{$category.seo_description},{$site_info.site_seo_description|default=''}">
+<include file="public@head" />
+<hook name="before_head_end" />
+  <link rel="stylesheet" href="__TMPL__/public/assets/css/reset.css">
+	<link rel="stylesheet" href="__TMPL__/public/assets/css/public.css">
+  <link rel="stylesheet" href="__TMPL__/public/assets/css/list.css">
+  <script type="text/javascript" src="__TMPL__/public/assets/utils/jquery-2.1.1.min.js">
+	</script>
+</head>
+<body>
+	<include file="public@nav" />
+	
+	<!--查询条件-->
+		<div class="container">
+		<div class="find">
+			<div class="choose">
+				<div class="search">
+					<input type="text" placeholder="国奥村" class="sear">
+					<input type="button" value="开始找房" class="btn">
+				</div>
+				<div class="type ovf">
+					<dl class="ovf">
+						<dt class="fll">类型：</dt>
+						<dd class="active fll">
+							<a href="">不限</a>
+						</dd>
+						<dd class="fll">
+							<a href="">住宅/公寓</a>
+						</dd>
+						<dd class="fll">
+							<a href="">商铺/写字楼</a>
+						</dd>
+						<dd class="fll">
+							<a href="">高端别墅</a>
+						</dd>
+					</dl>		
+				</div>
+				<div class="region">
+					<dl class="ovf">
+						<dt class="fll">区域：</dt>
+						<dd class="active fll">
+							<a href="">不限</a>
+						</dd>
+						<dd class="fll">
+							<a href="">东城</a>
+						</dd>
+						<dd class="fll">
+							<a href="">西城</a>
+						</dd>
+						<dd class="fll">
+							<a href="">朝阳</a>
+						</dd>
+						<dd class="fll">
+							<a href="">海淀</a>
+						</dd>
+						<dd class="fll">
+							<a href="">丰台</a>
+						</dd>
+						<dd class="fll">
+							<a href="">石泉山</a>
+						</dd>
+						<dd class="fll">
+							<a href="">通州</a>
+						</dd>
+						<dd class="fll">
+							<a href="">昌平</a>
+						</dd>
+						<dd class="fll">
+							<a href="">大兴</a>
+						</dd>
+						<dd class="fll">
+							<a href="">亦庄开发区</a>
+						</dd>
+						<dd class="fll">
+							<a href="">顺义</a>
+						</dd>
+						<dd class="fll">
+							<a href="">房山</a>
+						</dd>
+						<dd class="fll">
+							<a href="">门头沟</a>
+						</dd>
+						<dd class="fll">
+							<a href="">平谷</a>
+						</dd>
+						<dd class="fll">
+							<a href="">怀柔</a>
+						</dd>
+						<dd class="fll">
+							<a href="">密云</a>
+						</dd>
+						<dd class="fll">
+							<a href="">延庆</a>
+						</dd>
+						<dd class="fll">
+							<a href="">燕郊</a>
+						</dd>
+						<dd class="fll">
+							<a href="">雄安新区</a>
+						</dd>
+					</dl>
+				</div>
+				<div class="price">
+					<dl class="ovf">
+						<dt class="fll">价格：</dt>
+						<dd class="active fll">
+							<a href="">不限</a>
+						</dd>
+						<dd class="fll">
+							<a href="">200万以下</a>
+						</dd>
+						<dd class="fll">
+							<a href="">200-300万</a>
+						</dd>
+						<dd class="fll">
+							<a href="">300-500万</a>
+						</dd>
+						<dd class="fll">
+							<a href="">500-800万</a>
+						</dd>
+						<dd class="fll">
+							<a href="">800-1000万</a>
+						</dd>
+						<dd class="fll">
+							<a href="">1000万以上</a>
+						</dd>
+						<dd class="fll">
+							<input type="text">
+							-&nbsp;<input type="text">&nbsp;万元
+							<input type="button" value="搜索" class="btnSear">
+						</dd>
+					</dl>
+				</div>
+				<!-- <div class="square">
+					<dl class="ovf">
+						<dt class="fll">面积：</dt>
+						<dd class="active fll">
+							<a href="">不限</a>
+						</dd>
+						<dd class="fll">
+							<a href="">50㎡以下</a>
+						</dd>
+						<dd class="fll">
+							<a href="">50-70㎡</a>
+						</dd>
+						<dd class="fll">
+							<a href="">70-90㎡</a>
+						</dd>
+						<dd class="fll">
+							<a href="">90-120㎡</a>
+						</dd>
+						<dd class="fll">
+							<a href="">120-140㎡</a>
+						</dd>
+						<dd class="fll">
+							<a href="">140-160㎡</a>
+						</dd>
+						<dd class="fll">
+							<a href="">160-200㎡</a>
+						</dd>
+						<dd class="fll">
+							<a href="">200㎡以上</a>
+						</dd>
+						<dd class="fll">
+							<input type="text">
+							-&nbsp;<input type="text">&nbsp;㎡
+							<input type="button" value="搜索" class="btnSear">
+						</dd>
+					</dl>
+				</div>
+				<div class="doorModel">
+					<dl class="ovf">
+						<dt class="fll">户型：</dt>
+						<dd class="active fll">
+							<a href="">不限</a>
+						</dd>
+						<dd class="fll">
+							<a href="">一居室</a>
+						</dd>
+						<dd class="fll">
+							<a href="">二居室</a>
+						</dd>
+						<dd class="fll">
+							<a href="">三居室</a>
+						</dd>
+						<dd class="fll">
+							<a href="">四居室</a>
+						</dd>
+						<dd class="fll">
+							<a href="">五居室</a>
+						</dd>
+						<dd class="fll">
+							<a href="">六居室</a>
+						</dd>
+					</dl>
+				</div>
+				 -->
+				
+				<div class="stage">
+					<dl class="ovf">
+						<dt class="fll">阶段：</dt>
+						<dd class="active fll">
+							<a href="">不限</a>
+						</dd>
+						<dd class="fll">
+							<a href="">一拍</a>
+						</dd>
+						<dd class="fll">
+							<a href="">二拍</a>
+						</dd>
+						<dd class="fll">
+							<a href="">三拍</a>
+						</dd>
+						<dd class="fll">
+							<a href="">重新拍卖</a>
+						</dd>
+					</dl>
+				</div>
+				<div class="state">
+					<dl class="ovf">
+						<dt class="fll">状态：</dt>
+						<dd class="active fll">
+							<a href="">不限</a>
+						</dd>
+						<dd class="fll">
+							<a href="">即将拍卖</a>
+						</dd>
+						<dd class="fll">
+							<a href="">正在拍卖</a>
+						</dd>
+						<dd class="fll">
+							<a href="">以结束</a>
+						</dd>
+					</dl>
+				</div>
+				<div class="startTime">
+					<dl class="ovf">
+						<dt class="fll">开拍时间：</dt>
+						<dd class="active fll">
+							<a href="">不限</a>
+						</dd>
+						<dd class="fll">
+							<a href="">最近3天</a>
+						</dd>
+						<dd class="fll">
+							<a href="">最近7天</a>
+						</dd>
+						<dd class="fll">
+							<a href="">最近30天</a>
+						</dd>
+						<dd class="fll">
+							<input type="text">
+							-&nbsp;<input type="text">
+							<input type="button" value="搜索" class="btnSear">
+						</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+	
+	
+	<!----->
+	
+	<div class="model">
+			<!--<ul class="layout">
+				<li class="li1">网格</li>
+				<li class="li2">列表</li>
+			</ul>-->
+			<div class="list">
+				<ul class="roomInfo">
+					<li class="release">最新发布</li>
+					<li>开拍时间</li>
+					<li>房屋总价</li>
+					<li>房屋单价</li>
+					<li>房屋面积</li>
+
+				</ul>
+			</div>
+
+			<div class="tabBox">
+				<ul>
+					<portal:articles item="vo" where="$where" order="$order"
+						page="$page" relation="categories" categoryIds="$category.id"
+						returnVarName="articles_data">
+					<li>
+						<a href="">
+							<img src="__TMPL__/public/assets/images/list/1.jpg">
+							<span class="over">
+								
+							</span>
+							<!-- <em>住宅</em> -->
+						</a>
+
+						<div class="info">
+							<h5>朝阳区国奥村18号楼1单元601室</h5>
+							<p>
+								<label>面积:</label>
+								<span>223.55㎡</span>
+							</p>
+							<p>
+								<label>市场价:</label>
+								<b>￥3061万</b>
+								<span>（136926.9元/㎡）</span>
+							</p>
+							<p>
+								<label>起拍价:</label>
+								<a>￥2675万</a>
+								<span style="margin-left: 50px;">（119660.0元/㎡）</span>
+							</p>
+							<p>
+								<label>开拍时间:</label>
+								<i>2018-04-24 10:00:00</i>
+							</p>
+						</div>	
+					</li>
+					</portal:articles>
+				
+				</ul>
+			</div>
+		<div class="clear"></div>
+			
+			 <div class="page">
+			 <ul class="ovf">
+				<page />
+			
+				<!--<span class="jump">
+					<a href="" class="firstPage">首页</a>
+					<a href="" class="prev"><</a>
+					<em class="number">
+						<a href="">1</a>
+					</em>
+					<a href="" class="next">></a>
+					<a href="" class="nextPage">尾页</a>
+				</span>
+				<span class="p_jump">
+					<b class="f1">到第</b>
+					<input type="text" class="text">
+					<b>页</b>
+					<input type="button" value="确定" class="button">-->
+				</ul> 
+			</div>	
+		
+		</div>
+	
+	<!--精品房源-->
+
+	<div class="relative">
+			<h5 class="h5">推荐精品房源</h5>
+			<ul class="housing ovf">
+				<li>
+					<a href="">
+						<img src="__TMPL__/public/assets/images/list/10.jpg">
+					</a>
+					<div class="info">
+						<h5>朝阳区&nbsp;鸿华高尔夫家园4号楼02号独栋</h5>
+						<p>
+							<label>面积:</label>
+							<span>495.65㎡</span>
+						</p>
+						<p>
+							<label>市场价:</label>
+							<b>￥3000万</b>
+							<span>（60526.6.9元/㎡）</span>
+						</p>
+						<p>
+							<label>起拍价:</label>
+							<a>￥2208万</a>
+							<span style="margin-left: 50px;">（44547.6元/㎡）</span>
+						</p>
+						<p>
+							<label>开拍时间:</label>
+							<i>2018-06-30 10:00:00</i>
+						</p>
+					</div>	
+				</li>
+				<li>
+					<a href="">
+						<img src="__TMPL__/public/assets/images/list/11.jpg">
+					</a>
+					<div class="info">
+						<h5>西城区&nbsp;一瓶小区2号楼1单元802室</h5>
+						<p>
+							<label>面积:</label>
+							<span>273.90㎡</span>
+						</p>
+						<p>
+							<label>市场价:</label>
+							<b>￥3778万</b>
+							<span>（137933.6元/㎡）</span>
+						</p>
+						<p>
+							<label>起拍价:</label>
+							<a>￥3150万</a>
+							<span style="margin-left: 50px;">（115005.5元/㎡）</span>
+						</p>
+						<p>
+							<label>开拍时间:</label>
+							<i>2018-06-18 10:00:00</i>
+						</p>
+					</div>	
+				</li>
+				<li>
+					<a href="">
+						<img src="__TMPL__/public/assets/images/list/12.jpg">	
+					</a>
+					<div class="info">
+						<h5>朝阳区&nbsp;富力又一城A区7号楼2单元502室...</h5>
+						<p>
+							<label>面积:</label>
+							<span>209.77㎡</span>
+						</p>
+						<p>
+							<label>市场价:</label>
+							<b>￥940万</b>
+							<span>（44811.0元/㎡）</span>
+						</p>
+						<p>
+							<label>起拍价:</label>
+							<a>￥661万</a>
+							<span style="margin-left: 50px;">（31510.7元/㎡）</span>
+						</p>
+						<p>
+							<label>开拍时间:</label>
+							<i>2018-06-17 10:00:00</i>
+						</p>
+					</div>	
+				</li>
+				<li>
+					<a href="">
+						<img src="__TMPL__/public/assets/images/list/13.jpg">
+						<span class="over">
+							
+						</span>
+					</a>
+
+					<div class="info">
+						<h5>海淀区&nbsp;远大园五区12号楼2单元2C室</h5>
+						<p>
+							<label>面积:</label>
+							<span>212.49㎡</span>
+						</p>
+						<p>
+							<label>市场价:</label>
+							<b>￥2159万</b>
+							<span>（101604.8元/㎡）</span>
+						</p>
+						<p>
+							<label>起拍价:</label>
+							<a>￥1611万</a>
+							<span style="margin-left: 50px;">（75815.3元/㎡）</span>
+						</p>
+						<p>
+							<label>开拍时间:</label>
+							<i>2018-06-18 10:00:00</i>
+						</p>
+					</div>	
+				</li>
+				<li>
+					<a href="">
+						<img src="__TMPL__/public/assets/images/list/14.jpg">
+					</a>
+					<div class="info">
+						<h5>海淀区&nbsp;万城华府玺园17号楼1058联排...</h5>
+						<p>
+							<label>面积:</label>
+							<span>391.01㎡</span>
+						</p>
+						<p>
+							<label>市场价:</label>
+							<b>￥8900万</b>
+							<span>（227615.7元/㎡）</span>
+						</p>
+						<p>
+							<label>起拍价:</label>
+							<a>￥8848万</a>
+							<span style="margin-left: 50px;">（226285.8元/㎡）</span>
+						</p>
+						<p>
+							<label>开拍时间:</label>
+							<i>2018-06-21 10:00:00</i>
+						</p>
+					</div>	
+				</li>
+				<li>
+					<a href="">
+						<img src="__TMPL__/public/assets/images/list/15.jpg">
+					</a>
+					<div class="info">
+						<h5>朝阳区&nbsp;润泽悦溪912号楼2单元802室</h5>
+						<p>
+							<label>面积:</label>
+							<span>219.16㎡</span>
+						</p>
+						<p>
+							<label>市场价:</label>
+							<b>￥2268万</b>
+							<span>（103486.0元/㎡）</span>
+						</p>
+						<p>
+							<label>起拍价:</label>
+							<a>￥1747万</a>
+							<span style="margin-left: 50px;">（79713.5元/㎡）</span>
+						</p>
+						<p>
+							<label>开拍时间:</label>
+							<i>2018-06-11 10:00:00</i>
+						</p>
+					</div>	
+				</li>
+				<li>
+					<a href="">
+						<img src="__TMPL__/public/assets/images/list/16.jpg">
+					</a>
+					<div class="info">
+						<h5>朝阳区&nbsp;康堡花园2号楼1单元906室</h5>
+						<p>
+							<label>面积:</label>
+							<span>167.06㎡</span>
+						</p>
+						<p>
+							<label>市场价:</label>
+							<b>￥1336万</b>
+							<span>（79971.3元/㎡）</span>
+						</p>
+						<p>
+							<label>起拍价:</label>
+							<a>￥913万</a>
+							<span style="margin-left: 50px;">（54651.0元/㎡）</span>
+						</p>
+						<p>
+							<label>开拍时间:</label>
+							<i>2018-06-26 10:00:00</i>
+						</p>
+					</div>	
+				</li>
+				<li>
+					<a href="">
+						<img src="__TMPL__/public/assets/images/list/17.jpg">
+					</a>
+					<div class="info">
+						<h5>朝阳区&nbsp;丽都壹号132号楼1单元805室</h5>
+						<p>
+							<label>面积:</label>
+							<span>138.86㎡</span>
+						</p>
+						<p>
+							<label>市场价:</label>
+							<b>￥1230万</b>
+							<span>（88578.4元/㎡）</span>
+						</p>
+						<p>
+							<label>起拍价:</label>
+							<a>￥1062万</a>
+							<span style="margin-left: 50px;">（76479.9元/㎡）</span>
+						</p>
+						<p>
+							<label>开拍时间:</label>
+							<i>2018-06-04 10:00:00</i>
+						</p>
+					</div>	
+				</li>
+			</ul>
+		</div>
+		
+	
+	<include file="public@footer" />
+	<include file="public@scripts" />
+	<hook name="before_body_end" />
+	<script src="__STATIC__/js/admin.js"></script>
+
+	<script type="text/javascript">
+		$(function() {
+
+			var sortValue = $("#sort").attr("value");
+			var sortType = $("#sortType").attr("value");
+			if (sortValue == "1") {
+				if (sortType == "up") {
+					$("#time").attr("class", "tabActive sortUp");
+				} else {
+					$("#time").attr("class", "tabActive sortDown");
+				}
+
+			} else if (sortValue == "2") {
+				if (sortType == "up") {
+					$("#price").attr("class", "tabActive sortUp");
+				} else {
+					$("#price").attr("class", "tabActive sortDown");
+				}
+			} else {
+				if (sortType == "up") {
+					$("#default").attr("class", "tabActive sortUp");
+				} else {
+					$("#default").attr("class", "tabActive sortDown");
+				}
+			}
+			$("#province").change(function() {
+				getCity();
+			});
+	    	
+	    	$("#city").change(function(){
+	    		getDistrict();
+	    	});
+
+			function getCity() {
+				$("#city").empty();
+				$.getJSON("__URL__/GetCity", {
+					province : $("#province").val()
+				}, function(data) {
+					$.each(data, function(i, item) {
+						$("<option></option>").val(item['city']).text(
+								item['city']).appendTo($("#city"));
+					});
+					getDistrict();
+				});
+			}
+			
+			function getDistrict() {
+				$("#district").empty();
+				$.getJSON("__URL__/GetDistrict", {
+					city : $("#city").val()
+				}, function(data) {
+					$.each(data, function(i, item) {
+						$("<option></option>").val(item['district']).text(
+								item['district']).appendTo($("#district"));
+					});
+				});
+			}
+
+		});
+
+		function ChangeSort(index) {
+			if (index == 1) {
+
+				if ($("#time").attr("class") == "tabActive sortDown") {
+					$("#time").attr("class", "tabActive sortUp");
+					$("#sortType").attr("value","up");
+				} else {
+					$("#time").attr("class", "tabActive sortDown");
+					$("#sortType").attr("value","down");
+				}
+				$("#default").attr("class", "");
+				$("#price").attr("class", "");
+			} else if (index == 2) {
+				if ($("#price").attr("class") == "tabActive sortDown") {
+					$("#price").attr("class", "tabActive sortUp");
+					$("#sortType").attr("value","up");
+				} else {
+					$("#price").attr("class", "tabActive sortDown");
+					$("#sortType").attr("value","down");
+				}
+				$("#default").attr("class", "");
+				$("#time").attr("class", "");
+			} else {
+				if ($("#default").attr("class") == "tabActive sortDown") {
+					$("#default").attr("class", "tabActive sortUp");
+					$("#sortType").attr("value","up");
+				} else {
+					$("#default").attr("class", "tabActive sortDown");
+					$("#sortType").attr("value","down");
+				}
+				$("#price").attr("class", "");
+				$("#time").attr("class", "");
+			}
+			$("#sort").attr("value", index);
+			Post();
+
+		}
+
+		function GetStatus(id) {
+			$("#status").attr("value", id);
+
+		}
+
+		function GetCategory(id) {
+			$("#category").attr("value", id);
+
+		}
+
+		function GetStep(id) {
+			$("#step").attr("value", id);
+		}
+		function Post() {
+			$("#post").click();
+		}
+	</script>
+</body>
+</html>

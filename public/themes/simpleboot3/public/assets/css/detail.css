@@ -1,0 +1,356 @@
+.clear{
+	clear: both;
+}
+.container{
+	margin: 0 auto;
+	margin-top: 30px;
+	width: 1200px;	
+}
+.intro{
+	background: white;
+	padding: 36px 30px 35px 19px;
+	box-shadow: 0 0 25px rgba(0,0,0,0.1);
+}
+.intro .floo1 h5{
+	font-size: 26px;
+	margin-left: 20px;
+	color: #4a4a4a;
+	float: left;
+	line-height: 26px;
+}
+.intro .floo1 .share{
+	float: right;
+	position: relative;
+}
+.share li{
+	float: left;
+	width: 71px;
+	height: 31px;
+	line-height: 31px;
+	padding-left: 45px;
+	margin-left: 20px;
+}
+.share li a{
+	color: #a87715;
+}
+.share .time{
+	width: 220px;
+	padding-left: 0;
+	overflow: hidden;
+}
+.floo2{
+	padding-top: 33px;
+}
+.pic{
+	float: left;
+}
+.pic .picBig img{
+	cursor: pointer;
+	width: 486px;
+	height: 273px;
+}
+.picSmall{
+	margin-top: 7px;
+	width: 484px;
+	/*height: 69px;*/
+	position: relative;
+}
+
+.picSmall .list{
+	overflow: hidden;
+	width: 490px;
+	position: relative;
+}
+.picSmall .list ul{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 534px ;
+	overflow: hidden;
+	z-index: 99;
+}
+.picSmall .list ul li{
+	float: left;
+	width: 89px;
+	margin-right: 3px;
+}
+.picSmall .list ul li.selected{
+	transition: all 0.3s;
+	border: solid 3px #DBBD5C;
+	box-sizing: border-box;
+}
+.picSmall .list ul li img{
+	width: 95px;
+	height: 69px;
+	cursor: pointer;
+}
+.picSmall .pre{
+	left: 0;
+	background: rgba(0,0,0,0.5);
+}
+.picSmall .next{
+	right: -3px;
+	background: rgba(0,0,0,0.5);
+}
+.picSmall .btn{
+	width: 24px;
+	height: 49px;
+	position: absolute;
+	z-index: 1;
+	top: 10px;
+	text-align: center;
+	line-height: 50px;
+	font-size: 30px;
+}
+.houseInfo{
+	float: left;
+	width: 493px;
+	padding-left: 28px;
+	position: relative;
+}
+.houseInfo li{
+	width: 368px;
+	border-bottom: 1px solid #eaeaea;
+}
+.houseInfo span{
+	font-size: 16px;
+	color: #333;
+}
+.houseInfo li.li1 i{
+	font-style: normal;
+	font-size: 16px;
+	color: #15955d;
+}
+.houseInfo li.li1 em{
+	font-size: 38px;
+	color: #15955d;
+	font-weight: bold;
+	font-style: normal;
+}
+.houseInfo li.li1{
+	height: 58px;
+	padding-top: 10px;
+}
+.houseInfo li.li2{
+	height: 60px;
+	text-align: center;
+	padding-top: 22px;
+}
+.houseInfo li dl{
+	display: inline-block;
+}
+.houseInfo li dl dt{
+	font-size: 18px;
+	color: #504f4f;
+	font-weight: bold;
+}
+.houseInfo li dl dd{
+	font-size: 14px;
+	color: #504f4f;
+	line-height: 14px;
+	padding-top: 9px;
+}
+.houseInfo li .dl2{
+	margin: 0 44px;
+}
+.houseInfo li.li3{
+	border: 0;
+	padding-top: 22px;
+}
+.houseInfo li td{
+	font-size: 16px;
+	color: #504f4f;
+	line-height: 33px;
+}
+.houseInfo li td b{
+	font-size: 23px;
+	color: #d91615;
+}
+.houseInfo li td i{
+	font-style: normal;
+	font-weight: bold;
+	color: #515151;
+}
+.houseInfo .book{
+	position: absolute;
+	top: 9px;
+	right: 46px;
+	text-align: center;
+}
+.houseInfo .book span{
+	display: block;
+	color: #db2423;
+	font-size: 16px;
+}
+.houseInfo .book label{
+	font-size: 14px;
+}
+.houseInfo .signup{
+	position: absolute;
+	cursor: pointer;
+	text-align: center;
+	border-radius: 3px;
+	width: 75px;
+	height: 35px;
+	bottom: 10px;
+	line-height: 35px;
+	padding-left: 10px;
+	padding-right: 10px;
+	background: #15955d;
+	right: 30px;
+}
+.houseInfo .signup span{
+	color: #fff;
+	font-size: 16px;
+	font-weight: bold;
+}
+.figure .ask{
+	margin-top: 10px;
+	position: relative;
+	cursor: pointer;
+}
+.figure .ask span{
+	font-size: 20px;
+	color: #15955d;
+	height: 45px;
+	line-height: 42px;
+	padding-left: 56px;
+	cursor: pointer;
+}
+.figure .name{
+	height: 38px;
+	line-height: 38px;
+	text-align: center;
+
+}
+.figure .name a{
+	font-weight: bold;
+	font-size: 18px;
+	color: #414446;
+}
+.figure .name span{
+	font-weight: bold;
+	font-size: 14px;
+	padding-left: 10px;
+	font-style: normal;
+}
+.figure .job{
+	width: 100%;
+	text-align: center;
+}
+.figure .job span{
+	display: block;
+	line-height: 28px;
+	font-size: 15px;
+	color: #504f4f;
+}
+.figure .tel{
+	height: 40px;
+	text-align: center;
+	width: 100%;
+}
+.figure .tel span{
+	padding-left: 0;
+	font-size: 20px;
+	color: #d91615;
+	line-height: 30px;
+	font-weight: bold;
+}
+.houseImg{
+	background: #fff;
+	box-shadow: 0 0 25px rgba(0,0,0,0.1);
+	padding-bottom: 26px;
+	margin-top: 29px;
+	padding: 0 20px;
+}
+.houseImg .title{
+	margin-left: 0px;
+	height: 60px;
+	line-height: 60px;
+	border-bottom: 1px solid #f0f0f0;
+	position: relative;
+}
+.houseImg .title span:first-child{
+	margin-left: 0;
+}
+.houseImg .title .tapover{
+	font-size: 20px;
+	color: #4a4a4a;
+	font-weight: bold;
+	border-bottom: 1px solid #a87715;
+	padding-bottom: 20px;
+	margin-left: 26px;
+}
+.houseImg .title .tapout{
+	font-size: 20px;
+	color: #4a4a4a;
+	border-bottom: 1px solid whitesmoke;
+	padding-bottom: 20px;
+	margin-left: 26px;
+}
+.houseImg .title img{
+	position: relative;
+	top: 8px;
+	width: 21px;
+	margin-right: 2px;
+}
+.houseImg .homeImg{
+	margin-top: 37px;
+	padding: 0 20px;
+	margin-left: 16px;
+
+}
+
+.houseImg ul li{
+	float: left;
+	margin-right: 20px;
+	margin-bottom: 17px;
+}
+.content{
+  padding: 30px 0;
+}
+.content .content-item{
+  display: none;
+}
+.content .content-item.selected{
+  display: block;
+}
+.buyNotice .buy-notice-title{
+  padding: 20px 0;
+  line-height: 25px;
+}
+.buyNotice p{
+	padding: 10px 0;
+	line-height: 20px;
+}
+.inquiry .evaluate{
+	margin-top: 15px;
+}
+.inquiry .ask{
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 12px;
+}
+.inquiry .ask b{
+	display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: #A0AFB8;
+	line-height: 30px
+}
+.inquiry .ask span{
+	font-size: 20px;
+	font-weight: bold;
+}
+.inquiry .answer b{
+	display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: #C62127;
+	line-height: 30px
+}
+.inquiry .answer span{
+	font-size: 16px;
+	line-height: 25px
+}

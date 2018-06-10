@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{$user_login}  - 我的拍品</title>
+<meta name="keywords" content=""/>
+<meta name="description" content="">
+<include file="public@head"/>
+</head>
+
+<body class="body-user" style="background-image: url(__TMPL__/public/assets/images/bg.png); background-repeat: repeat;"style="background-image: url(__TMPL__/public/assets/images/bg.png); background-repeat: repeat;">
+<include file="public@nav" />
+
+	<div class="container tc-main">
+		<div class="row">
+			<div class="col-md-3">
+				<include file="public@usernav" />
+			</div>
+			<div class="col-md-9">
+				<div class="tabs">
+					<div style="margin-top: 50px; font-size:28px;font-weight:500;">
+						&nbsp;&nbsp;&nbsp;&nbsp;我的拍品
+					</div>
+					
+					<div class="tab-content">
+						<div class="tab-pane active" id="one">
+							<br>							
+								<foreach name="lists" item="vo">
+									<div class="col-md-3" style="width:33%;padding-left:1px;padding-right:1px;">
+					                    <div class="tc-gridbox"style="margin:0 5px 5px 5px;">
+					                        <div class="header">
+					                         <div class="image-section">
+												<a
+													href="{:cmf_url('portal/Article/index',array('id'=>$vo.project_id,'cid'=>$vo.category_id))}">
+													<present name="vo.more.thumbnail"> <empty
+														name="vo.more.thumbnail"> <img
+														src="__TMPL__/public/assets/images/default-thumbnail.png"
+														class="img-responsive" alt=""> <else /> <img
+														src="{:cmf_get_image_url($vo.more.thumbnail)}"
+														class="img-responsive" alt=""> </empty> <else /> <img
+														src="__TMPL__/public/assets/images/default-thumbnail.png"
+														class="img-responsive" alt=""> </present>
+												</a>
+												<p
+													style="line-height: 2; padding: 0 13px; position: absolute; text-align: left; width: 300px; bottom: -10px; background: rgba(100, 100, 100, .5)">
+													<a style="color:white"
+														href="{:cmf_url('portal/Article/index',array('id'=>$vo.project_id,'cid'=>$vo.category_id))}">{$vo.post_title}</a>
+												</p>
+											  </div>
+					                        </div>
+					                        
+					                        <div class="info">
+												<p>
+													<span style="color: gray">起拍价:</span><span
+														style="font-size: 26px; color: red; margin-left: 5px;">{$vo.start_price}万
+			
+													</span>
+												</p>
+												<p>
+													<span style="color: gray">评估价:</span><span
+														style="font-size: 10px; margin-left: 5px; color: gray">{$vo.evaluate_price}万
+			
+													</span>
+												</p>
+												<p>
+													<span style="color: gray">开拍时间:</span><span
+														style="font-size: 10px; margin-left: 2px; font-weight: bolder">{:date('m月d日 H:m',strtotime($vo['start_time']))}</span>
+												</p>
+											</div>
+											<div class="willStartIcon">
+												<p
+													style="font-size: 10px; color: white; padding-left: 13px; padding-top: 5px; padding-right: 10px;">
+													<span>即将开始 </span>
+												</p>
+											</div>
+											<div class="info-bottom">
+												<p
+													style="border-right: 1px solid #eee; float: left; padding-right: 30px;">
+													<span style="color: gray">{$vo.post_like}次围观</span>
+												</p>
+												<p style="float: left;">
+													<span style="color: gray; padding-left: 20px">{$vo.post_hits}人报名</span>
+												</p>
+											</div>
+					                    </div>
+                					</div>
+								</foreach>
+							<div class="pagination">{$page|default=''}</div>
+						</div>
+					</div>
+				
+				
+				</div>
+			</div>
+		</div>		
+	</div>
+	<include file="public@footer" />
+<!-- /container -->
+<include file="public@scripts" />
+</body>
+</html>

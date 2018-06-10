@@ -1,0 +1,134 @@
+.banner{
+  width: 100%;
+  height: 660px;
+  background: url("../images/index/banner.png") no-repeat center;
+}
+.container{
+  margin: 0 auto;
+  width: 1200px;
+  header{
+    padding-top: 50px;
+    .logo{
+      margin-right: 30px;
+    }
+    .select{
+      margin-top: 25px;
+      select{
+        width: 90px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 18px;
+        border: solid 1px #aaa;
+        border-radius: 5px;
+        outline: none;
+        option{
+          height: 30px;
+          line-height: 30px;
+        }
+      }
+    }
+    .nav-header{
+      li{
+        a{
+          display: block;
+          font-size: 18px;
+          height: 80px;
+          line-height: 80px;
+          color: #fff;
+          padding: 0 21px;
+          transition: 0.3s;
+          &:hover{
+            color: #d91615;
+          }
+        }
+      }
+    }
+    .login-box{
+      padding-top: 25px;
+      a{
+        display: inline-block;
+        font-size: 18px;
+        line-height: 32px;
+        color: #fff;
+        transition: 0.3s;
+        &:hover{
+          color: #d91615;
+        }
+      }
+      span, i{
+        font-size: 18px;
+        padding: 0 5px;
+        color: #fff;
+      }
+    }
+  }
+  .header-title{
+    color: #ffffff;
+    height: 76px;
+    line-height: 76px;
+    font-size: 44px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  .num-box{
+    margin: 20px auto;
+    width: 515px;
+    box-sizing: border-box;
+    li{
+      width: 170px;
+      height: 76px;
+      &:nth-child(2){
+        border-left: solid 1px #fff;
+        border-right: solid 1px #fff;
+      }
+      p{
+        font-size: 42px;
+        height: 60px;
+        color: #d91615;
+      }
+      span{
+        font-size: 14px;
+        color: #fff;
+      }
+    }
+  }
+  .search-box{
+    margin: 30px auto;
+    width: 760px;
+    .search-nav{
+      li{
+        margin-right: 24px;
+        a{
+          display: block;
+          height: 46px;
+          line-height: 46px;
+          font-size: 16px;
+        }
+      }
+    }
+    .search-wrapper{
+      .search-text{
+        background: #ffffff;
+        border-radius: 5px 0 0 5px;
+        border: none;
+        height: 54px;
+        line-height: 54px;
+        padding: 0 10px;
+        width: 605px;
+        font-size: 14px;
+        overflow: hidden;
+      }
+      button{
+        height: 54px;
+        width: 130px;
+        background: #d91615;
+        color: #fff;
+        font-size: 18px;
+        border: none;
+        text-align: center;
+        overflow: hidden;
+        cursor: pointer;
+      }
+    }
+  }
+}

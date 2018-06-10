@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{$article.post_title}</title>
+<meta name="keywords"
+	content="{$site_info.site_seo_keywords|default=''}" />
+<meta name="description"
+	content="{$site_info.site_seo_description|default=''}">
+	  <link rel="stylesheet" href="__TMPL__/public/assets/css/reset.css">
+	<link rel="stylesheet" href="__TMPL__/public/assets/css/public.css">
+  <link rel="stylesheet" href="__TMPL__/public/assets/css/detail.css">
+<include file="public@head" />
+
+</head>
+
+<body >
+	<include file="public@nav" />
+
+<div class="container">
+		<div class="intro">
+			<div class="floo1">
+				<h5>{$article.post_title}</h5>
+				<div class="share">
+					<ul class="ul1">
+						<li class="time">审核时间:2018/3/16 11:27:48</li>
+						<li class="shareBtn">
+							<div>
+								<a href="">我要分享</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="clear"></div>
+			<div class="floo2">
+				<div class="pic">
+					<div class="picBig" id="picBig">
+						<img src="__TMPL__/public/assets/images/detail/1.jpg">
+					</div>
+					<div class="picSmall" id="picSmall">
+						<div class="pre btn">&lt;</div>
+						<div class="next btn">&gt;</div>
+						<div class="list" >
+							<ul id="picSmallList">
+								<li>
+									<img src="__TMPL__/public/assets/images/detail/2.jpg">
+								</li>
+								<li>
+									<img src="__TMPL__/public/assets/images/detail/3.jpg">
+								</li>
+								<li>
+									<img src="__TMPL__/public/assets/images/detail/4.jpg">
+								</li>
+								<li>
+									<img src="__TMPL__/public/assets/images/detail/4.jpg">
+								</li>
+								<li>
+									<img src="__TMPL__/public/assets/images/detail/6.jpg">
+								</li>
+								<li>
+									<img src="__TMPL__/public/assets/images/detail/7.jpg">
+								</li>
+								<li>
+									<img src="__TMPL__/public/assets/images/detail/2.jpg">
+								</li>
+								<li>
+									<img src="__TMPL__/public/assets/images/detail/7.jpg">
+								</li>
+							</ul>
+							
+						</div>
+
+					</div>
+				</div>
+				<div class="houseInfo">
+					<ul class="ul2">
+						<li class="li1">
+							<span>起拍价:</span>
+							<i>￥</i>
+							<em>{$article.start_price}</em>
+							<i>万</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<!-- <span>市场价:</span>
+							<em style="font-size: 18px;">￥3061万</em> -->
+						</li>
+						<!-- <li class="li2">
+							<dl>
+								<dt>6室2厅</dt>
+								<dd>6层 共6层</dd>
+							</dl>
+							<dl class="dl2">
+								<dt>南北</dt>
+								<dd>住宅</dd>
+							</dl>
+							<dl>
+								<dt>223.55平方米</dt>
+								<dd>2008年建成</dd>
+							</dl>
+						</li> -->
+						<li class="li3">
+							<table class="table">
+								
+								<!-- <tr>
+									<td style="width: 225px;">小区名称：国奥村</td>
+									<td>现用途：居住</td>
+								</tr>
+								<tr>
+									<td>所在区域：朝阳-奥林匹克公园</td>
+									<td>房源编号：2597</td>
+								</tr> -->
+								<!-- <tr>
+									<td colspan="2">保证金截止时间：<b id="countDown">已过截止时间</b></td>	
+								</tr> -->
+									<tr>
+									<td>联系人：{$article.contact_person}</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>保证金金额：{$article.deposite_cash}万元</td>
+									<td></td>
+								</tr>
+								
+								<tr>
+									<td colspan="2">开拍时间：<i>{:date('Y-m-d H:i:s',strtotime($article['announcement_time']))}</i></td>
+								</tr>
+								<tr>
+									<td colspan="2">咨询电话：<i>{$article.contact_phone}</i></td>	
+								</tr>
+									<tr>
+									<td colspan="2">所在地：<i>北京{$article.city}</i></td>	
+								</tr>
+							</table>
+						</li>
+					</ul>
+					<div class="book">
+						<img src="__TMPL__/public/assets/images/detail/book.png">
+						<span>设置提醒</span>
+						<label>8人已设置提醒</label>
+					</div>
+					<div class="signup">
+						<span>我要报名</span>
+					</div>
+				</div>
+				<!-- <div class="figure"> 
+					<a href="">
+						<img src="__TMPL__/public/assets/images/detail/figure.jpg">
+					</a>
+					<div class="ask">
+						<span>在线咨询</span>
+					</div>
+					<div class="name">
+						<a href="">郭伟</a>
+						<span>发拍经理</span>
+					</div>
+					<div class="job">
+						<span>司法拍卖&nbsp;从业5年</span>
+					</div>
+					<div class="tel">
+						<span>400-107-0088转1013</span>
+					</div>
+				</div>-->
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div class="houseImg">
+			<div class="title" id="homeImg">
+				<span class="tapover img">房源图片</span>
+				<span class="tapout notice">竞买公告</span>
+				<span class="tapout question">
+					<img src="__TMPL__/public/assets/images/detail/question.png">
+					<a>大家都在问</a>
+				</span>
+			</div>
+			<div class="content" id="content">
+			
+			<div class="buyNotice content-item">
+					<p>{$article.announcement}</p>
+				</div>
+				<div class="inquiry content-item">
+				{$article.post_content}
+				</div>
+			</div>
+		</div>
+	</div>
+
+<!-- 代码 结束 -->
+	
+	
+	<include file="public@footer" />
+</body>
+
+<include file="public@scripts" />
+<hook name="before_body_end" />
+	<script src="__TMPL__/public/assets/js/jquery.countdown.js"></script>
+
+
+<script type="text/javascript">
+		$(function() {
+
+			$("#province").change(function() {
+				getCity();
+			});
+	    	
+	    	$("#city").change(function(){
+	    		getDistrict();
+	    	});
+
+			function getCity() {
+				$("#city").empty();
+				$.getJSON("__URL__/GetCity", {
+					province : $("#province").val()
+				}, function(data) {
+					$.each(data, function(i, item) {
+						$("<option></option>").val(item['city']).text(
+								item['city']).appendTo($("#city"));
+					});
+					getDistrict();
+				});
+			}
+			
+			function getDistrict() {
+				$("#district").empty();
+				$.getJSON("__URL__/getDistrict", {
+					city : $("#city").val()
+				}, function(data) {
+					$.each(data, function(i, item) {
+						$("<option></option>").val(item['district']).text(
+								item['district']).appendTo($("#district"));
+					});
+				});
+			}
+
+	    var value= $("#bigNumber").text();
+		var rtn=convertCurrency(value);		
+        $("#bigNumber").html(rtn);
+		});
+
+		function ShowBig(url) {
+			$("#bigImage").attr("src", url);
+
+		}
+		
+		//代码如下所示：
+function convertCurrency(money) {
+  //汉字的数字
+  var cnNums = new Array('零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖');
+  //基本单位
+  var cnIntRadice = new Array('', '拾', '佰', '仟');
+  //对应整数部分扩展单位
+  var cnIntUnits = new Array('', '万', '亿', '兆');
+  //对应小数部分单位
+  var cnDecUnits = new Array('角', '分', '毫', '厘');
+  //整数金额时后面跟的字符
+  var cnInteger = '整';
+  //整型完以后的单位
+  var cnIntLast = '万元';
+  //最大处理的数字
+  var maxNum = 999999999999999.9999;
+  //金额整数部分
+  var integerNum;
+  //金额小数部分
+  var decimalNum;
+  //输出的中文金额字符串
+  var chineseStr = '';
+  //分离金额后用的数组，预定义
+  var parts;
+  if (money == '') { return ''; }
+  money = parseFloat(money);
+  if (money >= maxNum) {
+    //超出最大处理数字
+    return '';
+  }
+  if (money == 0) {
+    chineseStr = cnNums[0] + cnIntLast + cnInteger;
+    return chineseStr;
+  }
+  //转换为字符串
+  money = money.toString();
+  if (money.indexOf('.') == -1) {
+    integerNum = money;
+    decimalNum = '';
+  } else {
+    parts = money.split('.');
+    integerNum = parts[0];
+    decimalNum = parts[1].substr(0, 4);
+  }
+  //获取整型部分转换
+  if (parseInt(integerNum, 10) > 0) {
+    var zeroCount = 0;
+    var IntLen = integerNum.length;
+    for (var i = 0; i < IntLen; i++) {
+      var n = integerNum.substr(i, 1);
+      var p = IntLen - i - 1;
+      var q = p / 4;
+      var m = p % 4;
+      if (n == '0') {
+        zeroCount++;
+      } else {
+        if (zeroCount > 0) {
+          chineseStr += cnNums[0];
+        }
+        //归零
+        zeroCount = 0;
+        chineseStr += cnNums[parseInt(n)] + cnIntRadice[m];
+      }
+      if (m == 0 && zeroCount < 4) {
+        chineseStr += cnIntUnits[q];
+      }
+    }
+    chineseStr += cnIntLast;
+  }
+  //小数部分
+  if (decimalNum != '') {
+    var decLen = decimalNum.length;
+    for (var i = 0; i < decLen; i++) {
+      var n = decimalNum.substr(i, 1);
+      if (n != '0') {
+        chineseStr += cnNums[Number(n)] + cnDecUnits[i];
+      }
+    }
+  }
+  if (chineseStr == '') {
+    chineseStr += cnNums[0] + cnIntLast + cnInteger;
+  } else if (decimalNum == '') {
+    chineseStr += cnInteger;
+  }
+  return chineseStr;
+}
+		
+	</script>
+		<script>
+
+//显示保证金截止时间
+var int;
+var TimeStr="2018-06-22 10:00:00";
+var fullDate = TimeStr.split(" ")[0].split("-");
+var fullTime = TimeStr.split(" ")[1].split(":");
+
+var Deadline =new Date(fullDate[0], fullDate[1]-1, fullDate[2], (fullTime[0] != null ? fullTime[0] : 0), (fullTime[1] != null ? fullTime[1] : 0), (fullTime[2] != null ? fullTime[2] : 0));
+//var Deadline = (new Date("2017/09/03 10:00:00")).getTime();
+function GetReciprocalTime() {
+    var nowdate = new Date();  //开始时间
+    var date = Deadline - nowdate.getTime();   //时间差的毫秒数
+    if (date > 0) {
+        //计算出相差天数
+        var days = Math.floor(date / (24 * 3600 * 1000))
+        //计算出小时数
+        var leave1 = date % (24 * 3600 * 1000)    //计算天数后剩余的毫秒数
+        var hours = Math.floor(leave1 / (3600 * 1000))
+        //计算相差分钟数
+        var leave2 = leave1 % (3600 * 1000)        //计算小时数后剩余的毫秒数
+        var minutes = Math.floor(leave2 / (60 * 1000))
+        //计算相差秒数
+        var leave3 = leave2 % (60 * 1000)      //计算分钟数后剩余的毫秒数
+        var seconds = (leave3 / 1000).toFixed(1)
+        var str = "<span>" + days + "天 " + hours + "时 " + minutes + "分" + seconds + "秒";
+        $("#reciprocal").html(str);
+    }
+    else {
+        window.clearInterval(int);
+        $("#reciprocal").html("<span><em>已过截止时间</em></span>");
+    }
+};
+$(document).ready(function () {
+    int=setInterval(function () {
+        GetReciprocalTime();
+    }, 100);
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,403 @@
+<include file="public@header" />
+<style type="text/css">
+.pic-list li {
+	margin-bottom: 5px;
+}
+</style>
+<script type="text/html" id="photos-item-tpl">
+    <li id="saved-image{id}">
+        <input id="photo-{id}" type="hidden" name="photo_urls[]" value="{filepath}">
+        <input class="form-control" id="photo-{id}-name" type="text" name="photo_names[]" value="{name}"
+               style="width: 200px;" title="图片名称">
+        <img id="photo-{id}-preview" src="{url}" style="height:36px;width: 36px;"
+             onclick="imagePreviewDialog(this.src);">
+        <a href="javascript:uploadOneImage('图片上传','#photo-{id}');">替换</a>
+        <a href="javascript:(function(){$('#saved-image{id}').remove();})();">移除</a>
+    </li>
+</script>
+<script type="text/html" id="files-item-tpl">
+    <li id="saved-file{id}">
+        <input id="file-{id}" type="hidden" name="file_urls[]" value="{filepath}">
+        <input class="form-control" id="file-{id}-name" type="text" name="file_names[]" value="{name}"
+               style="width: 200px;" title="文件名称">
+        <a id="file-{id}-preview" href="{preview_url}" target="_blank">下载</a>
+        <a href="javascript:uploadOne('图片上传','#file-{id}','file');">替换</a>
+        <a href="javascript:(function(){$('#saved-file{id}').remove();})();">移除</a>
+    </li>
+</script>
+</head>
+<body>
+	<div class="wrap js-check-wrap">
+		<ul class="nav nav-tabs">
+			<li><a href="{:url('AdminProject/index')}">文章管理</a></li>
+			<li class="active"><a href="{:url('AdminProject/add')}">添加文章</a></li>
+		</ul>
+		<form action="{:url('AdminProject/addPost')}" method="post"
+			class="form-horizontal js-ajax-form margin-top-20">
+			<div class="row">
+				<div class="col-md-9">
+					<table class="table table-bordered">
+						<tr>
+							<th width="100">分类<span class="form-required">*</span></th>
+							<td><input class="form-control" type="text"
+								style="width: 400px;" required value="" placeholder="请选择分类"
+								onclick="doSelectCategory();" id="js-categories-name-input"
+								readonly /> <input class="form-control" type="hidden" value=""
+								name="post[categories]" id="js-categories-id-input" /></td>
+						</tr>
+						<tr>
+							<th>标题<span class="form-required">*</span></th>
+							<td><input class="form-control" type="text"
+								name="post[post_title]" id="title" required value=""
+								placeholder="请输入标题" /></td>
+						</tr>
+						<tr>
+							<th>关键词</th>
+							<td><input class="form-control" type="text"
+								name="post[post_keywords]" id="keywords" value=""
+								placeholder="请输入关键字">
+								<p class="help-block">多关键词之间用英文逗号隔开</p></td>
+						</tr>
+						<tr>
+							<th>文章来源</th>
+							<td><input class="form-control" type="text"
+								name="post[post_source]" id="source" value=""
+								placeholder="请输入文章来源"></td>
+						</tr>
+						<tr>
+							<th>摘要</th>
+							<td><textarea class="form-control" name="post[post_excerpt]"
+									style="height: 50px;" placeholder="请填写摘要"></textarea></td>
+						</tr>
+
+						<tr>
+							<th>所在地</th>
+							<td><dl class="aui-screen-list-item" attr="">
+									<dd>
+										<label class="aui-sr-input"> <select id="province"
+											name="post[province]">
+												<volist name="provinces" id="vo">
+												<option value="{$vo.pid}">{$vo.province}</option>
+
+												</volist>
+
+										</select> - <select name="post[city]" id="city">
+												<volist name="citys" id="vo">
+												<option value="{$vo.cid}">{$vo.city}</option>
+												</volist>
+										</select>
+										</select> - <select name="post[district]" id="district">
+												<volist name="districts" id="vo">
+												<option value="{$vo.cid}">{$vo.district}</option>
+												</volist>
+										</select>
+										</label>
+									</dd>
+								</dl></td>
+						</tr>
+						<tr>
+							<th>起拍价</th>
+							<td><input class="form-control" type="text"
+								name="post[start_price]" id="startprice" value=""
+								placeholder="请输入起拍价"></td>
+						</tr>
+						<tr>
+							<th>评估价</th>
+							<td><input class="form-control" type="text"
+								name="post[evaluate_price]" id="evaluateprice" value=""
+								placeholder="请输入评估价"></td>
+						</tr>
+						<tr>
+							<th>保证金</th>
+							<td><input class="form-control" type="text"
+								name="post[deposite_cash]" id="depositecash" value=""
+								placeholder="请输入保证金"></td>
+						</tr>
+						<tr>
+							<th>开始日期</th>
+							<td><input type="text"
+								class="form-control js-bootstrap-datetime"
+								name="post[start_time]" value="" autocomplete="off"></td>
+						</tr>
+						<tr>
+							<th>公告日期</th>
+							<td><input type="text"
+								class="form-control js-bootstrap-datetime"
+								name="post[announcement_time]" value="" autocomplete="off">
+							</td>
+						</tr>
+						<tr>
+							<th>截止日期</th>
+							<td><input type="text"
+								class="form-control js-bootstrap-datetime" name="post[end_time]"
+								value="" autocomplete="off" placeholder="请选择截至日期"></td>
+						</tr>
+						<tr>
+							<th>成交日期</th>
+							<td><input class="form-control js-bootstrap-datetime" type="text"
+								 name="post[deal_time]" id="deal_time" autocomplete="off"
+								placeholder="请选择成交日期"></td>
+						</tr>
+						<tr>
+							<th>成交价</th>
+							<td><input class="form-control" type="text"
+								 name="post[deal_price]"
+								id="deal_price" placeholder="请输入成交价"></td>
+						</tr>
+						<tr>
+							<th>拍卖状态</th>
+							<td><select name="post[status]" style="width: 150px">
+									<option value=0>即将开始</option>
+									<option value=1>拍卖中</option>
+									<option value=2>成功</option>
+									<option value=3>终止暂缓</option>
+									<option value=-1>失败</option>
+							</select></td>
+						</tr>
+						<tr>
+							<th>拍卖阶段</th>
+							<td><select name="post[auction_step]" style="width: 150px">
+									<option value=1>一拍</option>
+									<option value=2>二拍</option>
+									<option value=3>三拍</option>
+									<option value=4>变卖</option>
+							</select></td>
+						</tr>
+						<tr>
+							<th>拍卖平台</th>
+							<td><select name="post[platform_id]">
+									<volist name="platforms" id="vo">
+									<option value="{$vo.id}">{$vo.name}</option>
+									</volist>
+							</select></td>
+						</tr>
+						<tr>
+							<th>处置法院</th>
+							<td><select name="post[courtid]">
+									<volist name="courts" id="vo">
+									<option value="{$vo.id}">{$vo.name}</option>
+									</volist>
+							</select></td>
+						</tr>
+						<tr>
+							<th>联系人</th>
+							<td><input class="form-control" type="text"
+								name="post[contact_person]" id="contactperson" value=""
+								placeholder="请输入联系人"></td>
+						</tr>
+						<tr>
+							<th>咨询电话</th>
+							<td><input class="form-control" type="text"
+								name="post[contact_phone]" id="contactphone" value=""
+								placeholder="请输入咨询电话"></td>
+						</tr>
+						<tr>
+							<th>特别提示</th>
+							<td><textarea class="form-control"
+									name="post[special_remind]" style="height: 100px;"
+									placeholder="请填写特别提示"></textarea></td>
+						</tr>
+						<tr>
+							<th>拍卖公告</th>
+							<td><textarea class="form-control" name="post[announcement]"
+									style="height: 100px;" placeholder="请填写拍卖公告"></textarea></td>
+						</tr>
+						<tr>
+							<th>竞买须知</th>
+							<td><textarea class="form-control"
+									name="post[purchase_condition]" style="height: 100px;"
+									placeholder="请填写竞买须知"></textarea></td>
+						</tr>
+						<tr>
+							<th>标的内容</th>
+							<td><script type="text/plain" id="content"
+									name="post[post_content]"></script></td>
+						</tr>
+						<tr>
+							<th>相册</th>
+							<td>
+								<ul id="photos" class="pic-list list-unstyled form-inline"></ul>
+								<a
+								href="javascript:uploadMultiImage('图片上传','#photos','photos-item-tpl');"
+								class="btn btn-default btn-sm">选择图片</a>
+							</td>
+						</tr>
+						<tr>
+							<th>附件</th>
+							<td>
+								<ul id="files" class="pic-list list-unstyled form-inline">
+								</ul> <a
+								href="javascript:uploadMultiFile('附件上传','#files','files-item-tpl','file');"
+								class="btn btn-sm btn-default">选择文件</a>
+							</td>
+						</tr>
+					</table>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<button type="submit" class="btn btn-primary js-ajax-submit">{:lang('ADD')}</button>
+							<a class="btn btn-default" href="{:url('AdminProject/index')}">{:lang('BACK')}</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<table class="table table-bordered">
+						<tr>
+							<th><b>缩略图</b></th>
+						</tr>
+						<tr>
+							<td>
+								<div style="text-align: center;">
+									<input type="hidden" name="post[more][thumbnail]"
+										id="thumbnail" value=""> <a
+										href="javascript:uploadOneImage('图片上传','#thumbnail');"> <img
+										src="__TMPL__/public/assets/images/default-thumbnail.png"
+										id="thumbnail-preview" width="135" style="cursor: pointer" />
+									</a> <input type="button" class="btn btn-sm btn-cancel-thumbnail"
+										value="取消图片">
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th><b>发布时间</b></th>
+						</tr>
+						<tr>
+							<td><input class="form-control js-bootstrap-datetime"
+								type="text" name="post[published_time]"
+								value="{:date('Y-m-d H:i:s',time())}"></td>
+						</tr>
+						<tr>
+							<th><b>状态</b></th>
+						</tr>
+						<tr>
+							<td>
+								<div class="checkbox">
+									<label><input type="checkbox" name="post[post_status]"
+										value="1" checked>发布</label>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="checkbox">
+									<label><input type="checkbox" name="post[is_top]"
+										value="1">置顶</label>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="checkbox">
+									<label><input type="checkbox" name="post[recommended]"
+										value="1">推荐</label>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>文章模板</th>
+						</tr>
+						<tr>
+							<td><select class="form-control" name="post[more][template]"
+								id="more-template-select">
+									<option value="">请选择模板</option>
+									<foreach name="article_theme_files" item="vo"> <php>$value=preg_replace('/^portal\//','',$vo['file']);</php>
+									<option value="{$value}">{$vo.name} {$vo.file}.html</option>
+									</foreach>
+							</select></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</form>
+	</div>
+	<script type="text/javascript" src="__STATIC__/js/admin.js"></script>
+	<script type="text/javascript">
+		//编辑器路径定义
+		var editorURL = GV.WEB_ROOT;
+	</script>
+	<script type="text/javascript"
+		src="__STATIC__/js/ueditor/ueditor.config.js"></script>
+	<script type="text/javascript"
+		src="__STATIC__/js/ueditor/ueditor.all.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+
+			editorcontent = new baidu.editor.ui.Editor();
+			editorcontent.render('content');
+			try {
+				editorcontent.sync();
+			} catch (err) {
+			}
+
+			$('.btn-cancel-thumbnail')
+					.click(
+							function() {
+								$('#thumbnail-preview')
+										.attr('src',
+												'__TMPL__/public/assets/images/default-thumbnail.png');
+								$('#thumbnail').val('');
+							});
+
+			$("#province").change(function() {
+				getCity();
+			});
+	    	
+	    	$("#city").change(function(){
+	    		getDistrict();
+	    	});
+
+			function getCity() {
+				$("#city").empty();
+				$.getJSON("__URL__/GetCity", {
+					province : $("#province").val()
+				}, function(data) {
+					$.each(data, function(i, item) {
+						$("<option></option>").val(item['city']).text(
+								item['city']).appendTo($("#city"));
+					});
+					getDistrict();
+				});
+			}
+			
+			function getDistrict() {
+				$("#district").empty();
+				$.getJSON("__URL__/getDistrict", {
+					city : $("#city").val()
+				}, function(data) {
+					$.each(data, function(i, item) {
+						$("<option></option>").val(item['district']).text(
+								item['district']).appendTo($("#district"));
+					});
+				});
+			}
+
+		});
+
+		function doSelectCategory() {
+			var selectedCategoriesId = $('#js-categories-id-input').val();
+			openIframeLayer("{:url('AdminCategory/select')}?ids="
+					+ selectedCategoriesId, '请选择分类', {
+				area : [ '700px', '400px' ],
+				btn : [ '确定', '取消' ],
+				yes : function(index, layero) {
+					//do something
+
+					var iframeWin = window[layero.find('iframe')[0]['name']];
+					var selectedCategories = iframeWin.confirm();
+					if (selectedCategories.selectedCategoriesId.length == 0) {
+						layer.msg('请选择分类');
+						return;
+					}
+					$('#js-categories-id-input').val(
+							selectedCategories.selectedCategoriesId.join(','));
+					$('#js-categories-name-input')
+							.val(
+									selectedCategories.selectedCategoriesName
+											.join(' '));
+					//console.log(layer.getFrameIndex(index));
+					layer.close(index); //如果设定了yes回调，需进行手工关闭
+				}
+			});
+		}
+	</script>
+</body>
+</html>

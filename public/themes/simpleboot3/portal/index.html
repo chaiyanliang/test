@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>首页 {$site_info.site_name|default=''}</title>
+<meta name="keywords"
+	content="{$site_info.site_seo_keywords|default=''}" />
+<meta name="description"
+	content="{$site_info.site_seo_description|default=''}">
+<include file="public@head" />
+</head>
+<body>
+	<include file="public@nav" />
+<!--banner 轮播图-->
+<div class="banner">
+  <div class="carousel">
+    <ul class="ovf carousel-box" id="carouselBox">
+      <li class="carousel-item">
+        <a href="#">
+          <img src="__TMPL__/public/assets/images/index/banner.png" alt="">
+        </a>
+        <div class="search-box">
+          <h3 class="search-title text-c color-fff">国内规范、专业</h3>
+          <h5 class="sub-title text-c color-fff">司法房产拍卖、国有资产处置的服务平台</h5>
+          <h6 class="count text-c color-fff">共有拍卖房<span>2280</span>套，近一周开拍有<span>64</span>套</h6>
+          <ul class="ovf search-nav">
+            <li class="search-list fll"><a href="javascript:;" class="color-fff">全部</a></li>
+            <li class="search-list fll"><a href="javascript:;" class="color-fff">住宅</a></li>
+            <li class="search-list fll"><a href="javascript:;" class="color-fff">住宅</a></li>
+            <li class="search-list fll"><a href="javascript:;" class="color-fff">住宅</a></li>
+            <li class="search-list fll"><a href="javascript:;" class="color-fff">住宅</a></li>
+            <li class="search-list fll"><a href="javascript:;" class="color-fff">住宅</a></li>
+          </ul>
+          <div class="search-form ovf">
+            <input type="text" name="search" placeholder="请输入楼盘找房" class="fll">
+            <button class="fll">开始找房</button>
+          </div>
+        </div>
+      </li>
+      <li class="carousel-item">
+        <a href="#">
+          <img src="__TMPL__/public/assets/images/index/banner1.png" alt="">
+        </a>
+      </li>
+      <li class="carousel-item">
+        <a href="#">
+          <img src="__TMPL__/public/assets/images/index/banner2.jpg" alt="">
+        </a>
+      </li>
+      <li class="carousel-item">
+        <a href="#">
+          <img src="__TMPL__/public/assets/images/index/banner3.jpg" alt="">
+        </a>
+      </li>
+    </ul>
+    <div class="point-box text-c" id="pointBox">
+      <a href="javascript:;"></a>
+      <a href="javascript:;"></a>
+      <a href="javascript:;"></a>
+      <a href="javascript:;"></a>
+    </div>
+  </div>
+</div>
+<!--banner-->
+<!--精选房源head-->
+<div class="container">
+  <div class="home-source">
+    <h2 class="home-title">精选房源</h2>
+    <p class="home-desc">低于市场价<span>20%</span>起，房源覆盖全北京市各区！</p>
+    <ul class="home-list ovf">
+    	<php> 			
+			$last_news_limit=3; </php>
+			<portal:articles limit="$last_news_limit"
+			    where="$whereing"			   
+				order="post_hits DESC,start_time asc">
+      <li class="fll">
+        <a href="./detail.html" class="home-img ovf"><img src="__TMPL__/public/assets/images/index/home.jpg" alt=""></a>
+        <a href="#" class="home-address">{$vo.post_title}</a>
+        <div class="home-info ovf">
+          <p class="origin-price fll">评估价：<span>￥{$vo.evaluate_price}万</span></p>
+          <!-- <p class="home-area fll">面积：100m&sup2;</p> -->
+        </div>
+        <p class="pay-price">起拍价：<span>￥{$vo.start_price}万</span> </p>
+        <p class="sale-time">开拍时间：<span>{:date('Y-m-d H:i:s',strtotime($vo['start_time']))}</span></p>
+      </li>
+   <!--   <li class="fll">
+        <a href="./detail.html" class="home-img ovf"><img src="./images/index/home.jpg" alt=""></a>
+        <a href="#" class="home-address">海淀区西山洋房12号楼1单元201室</a>
+        <div class="home-info ovf">
+          <p class="origin-price fll">市场价：<span>￥730万</span></p>
+          <p class="home-area fll">面积：100m&sup2;</p>
+        </div>
+        <p class="pay-price">起拍价：<span>￥513</span> (55555/元/m&sup2;)</p>
+        <p class="sale-time">开拍时间：<span>2018-06-01 12:00:00</span></p>
+      </li>
+      <li class="fll">
+        <a href="./detail.html" class="home-img ovf"><img src="./images/index/home.jpg" alt=""></a>
+        <a href="#" class="home-address">海淀区西山洋房12号楼1单元201室</a>
+        <div class="home-info ovf">
+          <p class="origin-price fll">市场价：<span>￥730万</span></p>
+          <p class="home-area fll">面积：100m&sup2;</p>
+        </div>
+        <p class="pay-price">起拍价：<span>￥513</span> (55555/元/m&sup2;)</p>
+        <p class="sale-time">开拍时间：<span>2018-06-01 12:00:00</span></p>
+      </li> -->
+      </portal:articles>
+    </ul>
+  </div>
+</div>
+<!--精选房源end-->
+<div class="float-banner ovf">
+  <a href="#" class="float-img"></a>
+</div>
+
+<!--竞拍流程-->
+<div class="step">
+  <div class="container">
+    <dl class="ovf">
+      <dt class="fll">竞拍流程</dt>
+      <dd class="fll">
+        <a href="#"><i class="icon icon1"></i> <b>第一步</b><span>拍前咨询</span></a>
+      </dd>
+      <dd class="fll">
+        <a href="#"><i class="icon  icon2"></i><b>第二步</b><span>实地勘察</span></a>
+      </dd>
+      <dd class="fll">
+        <a href="#"><i class="icon  icon3"></i><b>第三步</b><span>委托竞买</span></a>
+      </dd>
+      <dd class="fll">
+        <a href="#"><i class="icon  icon4"></i><b>第四 步</b><span>全面调查</span></a>
+      </dd>
+      <dd class="fll">
+        <a href="#"><i class="icon  icon5"></i><b>第五步</b><span>参加拍卖</span></a>
+      </dd>
+      <dd class="fll">
+        <a href="#"><i class="icon  icon6"></i><b>第六步</b><span>支付尾款</span></a>
+      </dd>
+      <dd class="fll">
+        <a href="#"><i class="icon  icon7"></i><b>第七步</b><span>缴税过户</span></a>
+      </dd>
+      <dd class="fll">
+        <a href="#"><i class="icon  icon8"></i><b>第八步</b><span>物业交付</span></a>
+      </dd>
+    </dl>
+  </div>
+</div>
+
+
+<!--捡漏房源-->
+<div class="leak-home">
+  <div class="container">
+    <h3 class="leak-title text-c">捡漏房源</h3>
+    <p class="leak-desc">低于银行评估价 <span>30%</span>以上的房源</p>
+    <ul class="leak-list ovf">
+    	<php> 			
+			$last_news_limit=2; </php>
+			<portal:articles limit="$last_news_limit"
+			    where="$whereing"			   
+				order="post_hits DESC,start_time asc">
+      <li class="fll ovf">
+        <div class="fll leak-img">
+          <a href="#">
+            <img src="__TMPL__/public/assets/images/index/leak.jpg" alt="">
+          </a>
+        </div>
+        <div class="leak-info fll">
+          <a href="#" class="leak-name block">{$vo.post_title}</a>
+          <!-- <a href="#" class="leak-address block">海淀区玫瑰御园1号楼1单元701室</a> -->
+          <p class="market-price">市场价:<span>￥{$vo.evaluate_price}万</span>面积：164m&sup2;</p>
+          <p class="now-price">起拍价：<span>￥{$vo.start_price}万</span> (50000元/&sup2;)</p>
+          <p class="pay-time">开拍时间：<span>{:date('Y-m-d H:i:s',strtotime($vo['start_time']))}</span></p>
+      </span></p>
+        </div>
+      </li>
+      </portal:articles>
+     <!-- <li class="fll ovf">
+        <div class="fll leak-img">
+          <a href="#">
+            <img src="__TMPL__/public/assets/images/index/leak.jpg" alt="">
+          </a>
+        </div>
+        <div class="leak-info fll">
+          <a href="#" class="leak-name block">玫瑰御园</a>
+          <a href="#" class="leak-address block">海淀区玫瑰御园1号楼1单元701室</a>
+          <p class="market-price">市场价:<span>￥1000万</span>面积：164m&sup2;</p>
+          <p class="now-price">起拍价：<span>￥800万</span> (50000元/&sup2;)</p>
+          <p class="pay-time">开拍时间：<span>2018-01-01 10:00:00</span></p>
+        </div>
+     </li>-->
+    </ul>
+    <a href="#" class="more block color-fff text-c">查看更多</a>
+  </div>
+</div>
+	
+<!--合作伙伴-->
+<div class="partner">
+  <div class="container">
+    <h3 class="partner-title text-c">合作伙伴</h3>
+    <p class="partner-desc text-c">合作机构、强强联手，您可安心购房</p>
+   
+    <dl class="partner-item ovf">
+     <!-- <dt class="fll">法院委托合作单位</dt>-->
+      <dd class="fll"><a href="#" class="block"><img src="__TMPL__/public/assets/images/index/changcheng.jpg" alt=""></a></dd>
+      <dd class="fll"><a href="#" class="block"><img src="__TMPL__/public/assets/images/index/xinda.jpg" alt=""></a></dd>
+      <dd class="fll"><a href="#" class="block"><img src="__TMPL__/public/assets/images/index/huarong.jpg" alt=""></a></dd>
+      <dd class="fll"><a href="#" class="block"><img src="__TMPL__/public/assets/images/index/dongfang.jpg" alt=""></a></dd>
+      <dd class="fll"><a href="#" class="block"><img src="__TMPL__/public/assets/images/index/fayuan.jpg" alt=""></a></dd>
+    </dl>
+  </div>
+</div>	
+	<!--购房保障-->
+<div class="guarantee">
+  <div class="container">
+    <h3 class="guarantee-title text-c">六项保证  专业服务</h3>
+   <!-- <p class="guarantee-desc text-c">大机构，保证您的购房无需承担任何风险</p>-->
+    <ul class="guarantee-list ovf">
+      <li class="fll ovf">
+        <img src="images/index/guarantee1.png" class="fll" alt="">
+        <p class="guarantee-text">
+          <b class="block">保证信息的真实</b>
+          <span class="block">房源信息全面、及时、精准</span></p>
+      </li>
+      <li class="fll ovf">
+        <img src="images/index/guarantee2.png" class="fll" alt="">
+        <p class="guarantee-text">
+          <b class="block">保证信息的真实</b>
+          <span class="block">房源信息全面、及时、精准</span></p>
+      </li>
+      <li class="fll ovf">
+        <img src="images/index/guarantee3.png" class="fll" alt="">
+        <p class="guarantee-text">
+          <b class="block">保证信息的真实</b>
+          <span class="block">房源信息全面、及时、精准</span></p>
+      </li>
+      <li class="fll ovf">
+        <img src="images/index/guarantee4.png" class="fll" alt="">
+        <p class="guarantee-text">
+          <b class="block">保证信息的真实</b>
+          <span class="block">房源信息全面、及时、精准</span></p>
+      </li>
+      <li class="fll ovf">
+        <img src="images/index/guarantee5.png" class="fll" alt="">
+        <p class="guarantee-text">
+          <b class="block">保证信息的真实</b>
+          <span class="block">房源信息全面、及时、精准</span></p>
+      </li>
+      <li class="fll ovf">
+        <img src="images/index/guarantee6.png" class="fll" alt="">
+        <p class="guarantee-text">
+          <b class="block">保证信息的真实</b>
+          <span class="block">房源信息全面、及时、精准</span></p>
+      </li>
+    </ul>
+  </div>
+</div>
+	<include file="public@footer" />
+	<!-- /container -->
+	<include file="public@scripts" />
+	<script src="__TMPL__/public/assets/js/slippry.min.js"></script>
+		<script src="__TMPL__/public/assets/js/jquery.caroufredse.js"></script>
+	<script type="text/javascript">
+/* 新闻列表滚动 */
+$(function(){
+	$('#carousel ul').carouFredSel({
+		prev: '#prev',
+		next: '#next',
+		scroll: 1000,
+		width:640
+	});
+});
+</script>
+	<script>
+		$(function() {
+			$("#home-slider").slippry({
+				transition : 'fade',
+				useCSS : true,
+				captions : false,
+				speed : 1000,
+				pause : 3000,
+				auto : true,
+				preload : 'visible'
+			});
+			$("#home-slider").show();
+		});
+		function Post() {
+			$("#post").click();
+		}
+
+		function HasText() {
+
+		}
+	</script>
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+				$('.counter-value').each(function(){
+				        $(this).prop('Counter',0).animate({
+				            Counter: $(this).text()
+				        },{
+				            duration: 3500,
+				            easing: 'swing',
+				            step: function (now){
+				                $(this).text(Math.ceil(now));
+				            }
+				        });
+			});
+		    
+		});
+	</script>
+	
+	
+	<hook name="before_body_end" />
+</body>
+</html>
